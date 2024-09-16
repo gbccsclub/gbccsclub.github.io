@@ -1,0 +1,36 @@
+---
+interface Props {
+	is_focus: boolean;
+	href: string;
+	target?: string;
+}
+
+const { 
+	is_focus, 
+	href, 
+	target="_blank" 
+} = Astro.props;
+---
+
+<a 
+	href={href} 
+	target={target} 
+	class={is_focus ? 'focus-link' : 'normal-link'}
+>
+	<slot/>
+</a>
+
+<style>
+	.focus-link {
+		@apply text-blue-500;
+	}
+
+	.normal-link {
+		@apply text-gray-700;
+	}
+
+	.normal-link:hover {
+		@apply text-blue-500;
+	}
+</style>
+

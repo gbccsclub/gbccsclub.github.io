@@ -1,0 +1,6 @@
+.primary-button {
+	border: none;
+	background-color: var(--primary-color);
+	color: var(--background-color);
+	font: var(--mono-font);
+}

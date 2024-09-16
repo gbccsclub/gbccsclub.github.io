@@ -1,0 +1,29 @@
+---
+interface Props {
+	current_page: string;
+}
+const { current_page } = Astro.props;
+
+import Link from '@/components/Link.astro';
+
+const page_list = [
+	{ name: 'Home', url: '/' },
+	{ name: 'About Us', url: '/about' },
+	{ name: 'Events', url: '/events' },
+	{ name: 'Contact Us', url: '/contact' },
+];
+---
+
+<nav>
+	<ul class='flex items-center'>
+		{page_list.map(page => <li class='px-4'>
+			<Link 
+				is_focus={current_page === page.name}
+				href={page.url}
+				target=""
+			>
+				{page.name}
+			</Link>
+		</li>)}
+	</ul>
+</nav>

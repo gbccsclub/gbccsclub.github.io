@@ -1,0 +1,16 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+import { getCollection } from "astro:content";
+
+const events = await getCollection("events");
+console.log(events);
+---
+
+<BaseLayout title={"Events"} current_page="Events">
+  <ul>
+	  {events.map((event: any) => <li>
+		  <a href={'/events/' + event.slug}>{event.data.title}</a>
+	  </li>)}
+  </ul>
+</BaseLayout>

@@ -1,0 +1,14 @@
+/* FONTS */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--primary-color: #144F50;
+	--background-color: #E9EDE6;
+
+	--mono-font: monospace;
+	--sans-font: sans-serif;
+	--serif-font: serif;
+}

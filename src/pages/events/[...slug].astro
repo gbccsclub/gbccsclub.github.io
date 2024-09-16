@@ -1,0 +1,24 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+	const events = await getCollection('events');
+	return events.map(entry => ({
+		params: { slug: entry.slug }, props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<BaseLayout title={entry.data.title} current_page='Events'>
+	<h1>{entry.data.title}</h1>
+	<p>{entry.data.description}</p>
+	<p>{entry.data.date}</p>
+	<p>{entry.data.location}</p>
+	<p>{entry.data.organizer}</p>
+	<Content />
+</BaseLayout>
